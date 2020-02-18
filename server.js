@@ -41,4 +41,16 @@ server.post('/api', (req, res) => {
         });
 });
 
+server.delete('/api/:id', (req, res) => {
+    const { id } = req.params;
+    carsDb.remove(id)
+        .then(() => {
+            res.status(204).send();
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: "Something went wrong deleting this car" });
+        });
+});
+
 module.exports = server;
