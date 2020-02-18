@@ -9,21 +9,19 @@ module.exports = {
 }
 
 function get() {
-    return db()
-        .from('cars')
+    return db('cars')
         .select('*');
 }
 
 function getById(id) {
-    return db()
-        .from('cars')
+    return db('cars')
         .select('*')
         .where({ id })
         .first();
 }
 
 function insert(car) {
-    return db()
+    return db('cars')
         .insert(car);
 }
 

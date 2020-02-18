@@ -33,7 +33,7 @@ server.post('/api', (req, res) => {
     const car = req.body;
     carsDb.insert(car)
         .then(inserted => {
-            return carsDb.getById(inserted[i])
+            return carsDb.getById(inserted[0])
                 .then(insertedCar => res.status(201).json(insertedCar));
         })
         .catch(err => {
